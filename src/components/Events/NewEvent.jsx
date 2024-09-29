@@ -1,5 +1,4 @@
 import { Link, useNavigate } from "react-router-dom";
-
 import Modal from "../UI/Modal.jsx";
 import EventForm from "./EventForm.jsx";
 import { useMutation } from "@tanstack/react-query";
@@ -26,8 +25,9 @@ export default function NewEvent() {
     <Modal onClose={() => navigate("../")}>
       <EventForm onSubmit={handleSubmit}>
         <>
-          {isPending && <p>submitting...</p>}
-          {!isPending && (
+          {isPending ? (
+            <div>submitting...</div>
+          ) : (
             <>
               <Link to="../" className="button-text">
                 Cancel
